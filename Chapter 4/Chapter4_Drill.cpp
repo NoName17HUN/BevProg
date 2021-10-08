@@ -1,32 +1,61 @@
 #include "std_lib_facilities.h"
-#include <cmath>
+
 
 int main(){
 
-bool TerminaterWasHit;
+bool TerminaterWasHit=false;
 double CurrentNumber1 = 0.0, CurrentNumber2 = 0.0;
-
-cout << "Give me two integer Values please!(Or you can terminate the program at anytime with the '|' (pipeline) charachter)" << endl;
-
-
-
+char OutgoingCharachter='W';
 	
+cout << "Give me two integer Values please!(Or you can terminate the program at anytime with the '|' (pipeline) charachter)" << endl;
+cin >> CurrentNumber1 >> CurrentNumber2;
+cout << "first number is=" << CurrentNumber1 << " second number is=" << CurrentNumber2 << endl;
 
-	while (cin >> CurrentNumber1 >> CurrentNumber2)
+		if (CurrentNumber1 == CurrentNumber2) 
+			cout << "The First number and The Second number are equal." << endl;
+		if (CurrentNumber1 < CurrentNumber2) 
+			cout << "Your maximum from(" << CurrentNumber1 << "," << CurrentNumber2 << ") is " << CurrentNumber2 << endl;
+		if (CurrentNumber1 > CurrentNumber2) 
+			cout << "Your maximum from(" << CurrentNumber1 << "," << CurrentNumber2 << ") is " << CurrentNumber1 << endl;
+		
+		if ((CurrentNumber1 - CurrentNumber2) <= 0.001) 
+			cout << "Wow your numbers are actually almost equal!" << endl;
+			
+		cout << "Please enter anything if you would like to countinue, or enter '|' to stop the program" << endl;
+		cin >> OutgoingCharachter;
+		if(OutgoingCharachter=='|') 
+		{
+			TerminaterWasHit=true;
+			goto jumploop;
+		}else		
+		
+		
+	while (OutgoingCharachter!='|')
 	{
+		
+		cout << "Give me two integer Values please!" << endl;
+		cin >> CurrentNumber1 >> CurrentNumber2;
+						
 		cout << "first number is=" << CurrentNumber1 << " second number is=" << CurrentNumber2 << endl;
 
 		if (CurrentNumber1 == CurrentNumber2) 
-		cout << "The First number and The Second number are equal." << endl;
-		if (a < b) 
-		cout << "Your maximum of(" << CurrentNumber1 << "," << CurrentNumber2 << ") is " << CurrentNumber2 << endl;
-		if (a > b) 
-		cout << "Your maximum of(" << CurrentNumber1 << "," << CurrentNumber2 << ") is " << a << endl;
+			cout << "The First number and The Second number are equal." << endl;
+		if (CurrentNumber1 < CurrentNumber2) 
+			cout << "Your maximum from(" << CurrentNumber1 << "," << CurrentNumber2 << ") is " << CurrentNumber2 << endl;
+		if (CurrentNumber1 > CurrentNumber2) 
+			cout << "Your maximum from(" << CurrentNumber1 << "," << CurrentNumber2 << ") is " << CurrentNumber1 << endl;
 		
 		if ((CurrentNumber1 - CurrentNumber2) <= 0.01) 
-		cout << "Wow your numbers are actually almost equal!" << endl;
+			cout << "Wow your numbers are actually almost equal!" << endl;
+			
+		cout << "Please enter anything if you would like to countinue, or enter '|' to stop the program" << endl;
+		cin >> OutgoingCharachter;
 	}
-
-
+jumploop:
+if(TerminaterWasHit)
+{
+cout << "Thank you for your attention. Come and Use this program again, whenever you would like to!\n";
+return 0;
+}
 return 0;
 }
